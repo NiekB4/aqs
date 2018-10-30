@@ -24,8 +24,6 @@ dataLuchtmeetnetDBZwartewaalstraat = dataLuchtmeetnet[1]
 # Call functions from the readWeerlive module:
 dataWeerlive = readWeerlive.weerliveDBtoMain()
 
-#print(dataSensorsCSV[0][0][0])
-
 datasetCSV = dataSensorsCSVPleinweg
 datasetDB = dataLuchtmeetnetDBPleinweg
 
@@ -48,35 +46,6 @@ def combine(datasetCSV, datasetDB, street):
                     stDB = datasetDB[8][j-1]
                     etDB = datasetDB[8][j]
                     if stDB < timestCSV_min2 < etDB:
-                        #print("stDB: ", stDB)
-                        #print(" tDB: ", timestCSV_min3)
-                        #print("etDB: ", etDB)
-                        #print("")
-                        #print(datasetCSV[0][i])
-                        #print(datasetCSV[1][i])
-                        #print(datasetCSV[2][i])
-                        #print(datasetCSV[3][i])
-                        #print(datasetCSV[4][i])
-                        #print(datasetCSV[5][i])
-                        #print(datasetCSV[6][i])
-                        #print(datasetCSV[7][i])
-                        #print(datasetCSV[8][i])
-                        #print(datasetCSV[9][i])
-                        #print(datasetCSV[10][i])
-                        #print(datasetCSV[11][i])
-                        #print(datasetCSV[12][i])
-                        #print(datasetCSV[13][i]) # WITH THE TIME MATCHING THERE IS ROOM FOR IMPROVEMENT. FOR EXAMPLE WITH DIFFERENCE WITH LM TIME. OR AVERAGING. 
-                        #print("")
-                        #print(datasetDB[0][j])
-                        #print(datasetDB[1][j])
-                        #print(datasetDB[2][j])
-                        #print(datasetDB[3][j])
-                        #print(datasetDB[4][j])
-                        #print(datasetDB[5][j])
-                        #print(datasetDB[6][j])
-                        #print(datasetDB[7][j])
-                        #print(datasetDB[8][j])
-                        #print("+++++++++++++++++++++++++")
                         f.write(str(datasetCSV[0][i]) + ";" + str(datasetCSV[1][i]) + ";" + str(datasetCSV[2][i]) + ";" + str(datasetCSV[3][i]) + ";" + str(datasetCSV[4][i]) + ";" + str(datasetCSV[5][i]) + ";" + str(datasetCSV[6][i]) + ";" + str(datasetCSV[7][i]) + ";" + str(datasetCSV[8][i]) + ";" + str(datasetCSV[9][i]) + ";" + str(datasetCSV[10][i]) + ";" + str(datasetCSV[11][i]) + ";" + str(datasetCSV[12][i]) + ";" + str(datasetCSV[13][i]) + ";" + str(datasetDB[0][j]) + ";" + str(datasetDB[1][j]) + ";" + str(datasetDB[2][j]) + ";" + str(datasetDB[3][j]) + ";" + str(datasetDB[4][j]) + ";" + str(datasetDB[5][j]) + ";" + str(datasetDB[6][j]) + ";" + str(datasetDB[7][j]) + ";" + str(datasetDB[8][j]) + ";")
                 for k in range(0, len(dataWeerlive[0])):
                     stDBwl = dataWeerlive[7][k-1]
@@ -85,12 +54,6 @@ def combine(datasetCSV, datasetDB, street):
                     #etDBwl_PLUS_2 = dataWeerlive[7][k] + timedelta(hours=2)
                     if stDBwl < timestCSV_min2 < etDBwl:
                     #if stDBwl_PLUS_2 < timestCSV < etDBwl_PLUS_2:
-                        # print(type(stDBwl))
-                        # print(stDBwl)
-                        # print(type(stDBwl_PLUS_2))
-                        # print(stDBwl_PLUS_2)
-                        # print(stDBwl)
-                        # print(etDBwl)
                         f.write(str(dataWeerlive[0][k]) + ";" + str(dataWeerlive[1][k]) + ";" + str(dataWeerlive[2][k]) + ";" + str(dataWeerlive[3][k]) + ";" + str(dataWeerlive[4][k]) + ";" + str(dataWeerlive[5][k]) + ";" + str(dataWeerlive[6][k]) + ";" + str(dataWeerlive[7][k]) + ";" + "\n")
                         #f.write(str(dataWeerlive[0][k]) + ";" + str(dataWeerlive[1][k]) + ";" + str(dataWeerlive[2][k]) + ";" + str(dataWeerlive[3][k]) + ";" + str(dataWeerlive[4][k]) + ";" + str(dataWeerlive[5][k]) + ";" + str(dataWeerlive[6][k]) + ";" + str(etDBwl_PLUS_2) + ";" + "\n")
                 #if c == 500:
@@ -108,9 +71,6 @@ def createNewCSV(datasetCSV, datasetDB, street):
     elif street == "Pleinweg":
         combine(dataSensorsCSVPleinweg, dataLuchtmeetnetDBPleinweg, "Pleinweg")
         print("New CSV file created for {}!".format(street))
-
-#createNewCSV(dataSensorsCSVZwartewaalstraat, dataLuchtmeetnetDBZwartewaalstraat, "Zwartewaalstraat")
-#createNewCSV(dataSensorsCSVPleinweg, dataLuchtmeetnetDBPleinweg, "Pleinweg")
 
 for i in range(0, 1):
     createNewCSV(dataSensorsCSVPleinweg, dataLuchtmeetnetDBPleinweg, "Pleinweg")
